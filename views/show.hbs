@@ -4,17 +4,6 @@
 
   <div class="row mb-4">
 
-    {{#if alertFul}}
-        <div class="col-md-10 mx-auto mb-3">
-          <div class="alert alert-success alert-dismissible fade" role="alert">
-            <strong>編輯完成！</strong> 　餐廳資訊已更新
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-        </div>
-    {{/if}}
-
     <div class="col-md-10 mx-auto">
       <a type="button" href="/" class="btn btn-danger btn-sm"><i class="fas fa-arrow-alt-circle-left"></i>  Back</a>
     </div>
@@ -56,33 +45,12 @@
 
       <img class="rounded mx-auto d-block mb-5 w-100 shadow-lg" src="{{restaurant.image}}" alt="{{restaurant.name}}" style="max-width: 600px;">
       <a href="/restaurant/{{restaurant._id}}/edit" class="btn btn-warning btn-lg"><i class="fas fa-edit"></i>  Edit</a>
-      <form action="/restaurant/{{restaurant._id}}/delete" method="POST" class="d-inline" >
-      <button type="button" class="btn btn-outline-secondary btn-lg delete__restaurant__btn" data-toggle="modal" data-target="#exampleModalCenter" data-id="{{restaurant._id}}">Delete</button>
+      
+      <button type="button" class="btn btn-outline-secondary btn-lg delete__restaurant__btn" data-toggle="modal" data-target="#Modal" data-id="{{restaurant._id}}">Delete</button>
     </div>
   </div>
 
 </div>
 
 
-  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalCenterTitle">刪除確認</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          你確定要刪除該筆餐廳資訊嗎?
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
-          <form action="" method="POST" name="delete_form">
-            <button type="submit" class="btn btn-danger">確認刪除</button>
-          </form>
-          
-        </div>
-      </div>
-    </div>
-  </div>
+

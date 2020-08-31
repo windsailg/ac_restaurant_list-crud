@@ -63,13 +63,12 @@
         <div class="input-group-prepend">
             <span class="input-group-text">餐廳照片</span>
         </div>
-        <input type="text" aria-label="First name" class="form-control" placeholder="餐廳實景照片網址" spellcheck="false" name="image" value="{{restaurant.image}}">
+        <input type="text" aria-label="First name" class="form-control image_input" placeholder="餐廳實景照片網址" spellcheck="false" name="image" value="{{restaurant.image}}">
     </div>
 
-    <div class="row justify-content-center">
-            <div class="card text-center " style="width: 18rem;">
-            <img src="{{restaurant.image}}" alt="{{restaurant.name}}" title="{{restaurant.name}}" style="max-width: 600px;" class="card-img-top" >
-
+    <div class="row justify-content-center ">
+        <div class="card text-center" style="width: 18rem;">
+            <img src="{{restaurant.image}}" alt="{{restaurant.name}}" title="{{restaurant.name}}" style="max-width: 600px;" class="card-img-top image_show" >
 
             <div class="card-footer text-muted ">
                 <h5 class="card-title">{{restaurant.name}}實景照片預覽</h5>
@@ -80,9 +79,7 @@
         <img class="rounded mx-auto d-block mb-4 w-60" >
 
         <button type="submit" class="btn btn-warning btn-lg"><i class="fas fa-save"></i>  Save</button>
-
-
-
+        <button type="button" class="btn btn-outline-secondary btn-lg delete__restaurant__btn" data-toggle="modal" data-target="#Modal" data-id="{{restaurant._id}}">Delete</button>
     </div>
 
 
@@ -90,9 +87,24 @@
 
 </div>
 
+<script>
+    // user range input UX function
+const ratingText = document.querySelector('.rating_number')
+const ratingRanger = document.querySelector('.custom-range')
 
-<script src="/javascript/create.js"></script>
+ratingRanger.addEventListener('input', (e) => {
+  ratingText.value = e.target.value + ' 顆星'
+})
 
+
+// user image input UX function
+const imageInput = document.querySelector('.image_input')
+const imageShow = document.querySelector('.image_show')
+
+imageInput.addEventListener('input', (e) => {
+  imageShow.src = `${e.target.value}`
+})
+</script>
 
 
 

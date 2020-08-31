@@ -86,8 +86,25 @@
 
 </div>
 
-<script src="/javascript/create.js"></script>
 
+<script>
+    // user range input UX function
+const ratingText = document.querySelector('.rating_number')
+const ratingRanger = document.querySelector('.custom-range')
+
+ratingRanger.addEventListener('input', (e) => {
+  ratingText.value = e.target.value + ' 顆星'
+})
+
+// user image input UX function
+const imageInput = document.querySelector('.image_input')
+const imageShow = document.querySelector('.image_show')
+
+imageInput.addEventListener('input', (e) => {
+  imageShow.src = `${e.target.value}`
+  imageShow.parentElement.classList.remove('d-none')
+})
+</script>
 
 
 
