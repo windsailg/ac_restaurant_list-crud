@@ -8,7 +8,6 @@ const bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: true }))
 
 const mongoose = require('mongoose')
-const { find } = require('./models/restaurant')
 mongoose.connect('mongodb://localhost/restaurant_list',
   { useNewUrlParser: true, useUnifiedTopology: true })
 

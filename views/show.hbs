@@ -55,7 +55,7 @@
       </p>
 
       <img class="rounded mx-auto d-block mb-5 w-100 shadow-lg" src="{{restaurant.image}}" alt="{{restaurant.name}}" style="max-width: 600px;">
-      <a href="/restaurant/{{restaurant._id}}/edit" class="btn btn-success btn-lg"><i class="fas fa-edit"></i>  Edit</a>
+      <a href="/restaurant/{{restaurant._id}}/edit" class="btn btn-warning btn-lg"><i class="fas fa-edit"></i>  Edit</a>
       <form action="/restaurant/{{restaurant._id}}/delete" method="POST" class="d-inline" >
       <button type="button" class="btn btn-outline-secondary btn-lg delete__restaurant__btn" data-toggle="modal" data-target="#exampleModalCenter" data-id="{{restaurant._id}}">Delete</button>
     </div>
