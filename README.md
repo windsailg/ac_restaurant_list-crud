@@ -62,8 +62,10 @@ npm run dev  //導入預設資料
 ```
 
 顯示以下資訊代表啟動成功
-Express is listening on localhost:3000 
-伺服器已經成功運作於 http://localhost:3000
+Express is running on http://localhost:3000
+mongoDB connected
+
+伺服器已經成功連線並運作於 http://localhost:3000
 
 
 
