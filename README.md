@@ -32,6 +32,7 @@
 - Express: 4.17.1
 - Express-Handlebars: 5.1.0
 - nodemon: 2.0.4
+- body-parser: 6.12.0
 
 
 ## 安裝

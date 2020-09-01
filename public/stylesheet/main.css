@@ -124,12 +124,12 @@ header {
   background-color: #fff;
   border-color: #ffd7cd;
   outline: 0;
-  box-shadow: 0 0 0 0.2rem #ffd7cd;
+  box-shadow: 0 0 .8rem #ffd7cd;
 }
 .custom-range:focus{
   border-color: transparent;
   outline: 1px solid transparent;
-  box-shadow: 0 0 0 0.2rem transparent;
+  box-shadow: 0 0 .8rem transparent;
 }
 .form-control:disabled{
   background-color: #fff3f0;
