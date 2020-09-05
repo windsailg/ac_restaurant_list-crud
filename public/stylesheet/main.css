@@ -137,3 +137,6 @@ header {
 .restaurant-show-title{
   min-height: 58px;
 }
+.card-title{
+  min-height: 20px;
+}
