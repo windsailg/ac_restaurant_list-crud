@@ -2,18 +2,38 @@
 <div class="container search-bar">
   <div class="search-bar-outer">
     <div class="search-bar-inner">
-      
-      <form action="/search" >
-        <h4 class="mb-2">尋找餐廳：</h4>
-        <div class="input-group">
+       <h4 class="mb-2">尋找餐廳：</h4>
+      <form action="/search"   class="search__form">
+       
+        <div class="input-group shadow ">
           <input type="text" name="keyword" class="form-control" placeholder="輸入餐廳、分類" aria-label="Restaurant Name..."
             value="{{keywords}}" aria-describedby="search-button">
           <div class="input-group-append">
             <button class="btn btn-major" type="submit" id="search-button"><i class="fas fa-search"></i></button>
-          </div>          
+          </div>  
         </div>
+
+        <div class="input-group ">
+          <div class="dropdown ml-3 shadow sorter">
+            <button class="btn btn-warning dropdown-toggle sorter__text" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              排序
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+              <button class="dropdown-item" type="button">A~Z</button>
+              <button class="dropdown-item" type="button">Z~A</button>
+              <button class="dropdown-item" type="button">類別</button>
+              <button class="dropdown-item" type="button">地區</button>
+            </div>
+          </div>
+        </div>
+
+
       </form>
+
     </div>
+
+
+
   </div>
 </div>
 
@@ -39,10 +59,10 @@
               </div>
               <div class="card-footer text-muted justify-content-end">
 
-                <a type="button" href="./restaurant/{{this._id}}" class="btn btn-danger btn-sm mb-2">More</a>
-                <a type="button" href="./restaurant/{{this._id}}/edit" class="btn btn-warning btn-sm mb-2">Edit</a>
+                <a type="button" href="./restaurant/{{this._id}}" class="btn btn-danger btn-sm mb-2 shadow-sm">More</a>
+                <a type="button" href="./restaurant/{{this._id}}/edit" class="btn btn-warning btn-sm mb-2 shadow-sm">Edit</a>
 
-                <button type="button" class="btn btn-outline-secondary btn-sm mb-2 delete__restaurant__btn" data-toggle="modal" data-target="#Modal" data-id="{{this._id}}">Delete</button>
+                <button type="button" class="btn btn-outline-secondary btn-sm mb-2 delete__restaurant__btn shadow-sm" data-toggle="modal" data-target="#Modal" data-id="{{this._id}}">Delete</button>
               </div>
             </div>
       {{/each}}
@@ -51,3 +71,12 @@
   </div>
 </div>
 
+<script>
+  const sorter = document.querySelector('.sorter')
+  sorter.addEventListener('click',e =>{
+    if(e.target.matches('.dropdown-item')){
+      sorter.children[0].innerHTML = e.target.innerText
+    }
+  })
+
+</script>

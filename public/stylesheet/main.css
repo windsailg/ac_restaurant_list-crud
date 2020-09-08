@@ -4,15 +4,12 @@ body{
 header {
   overflow: hidden;
 }
-
 .navbar .navbar-brand {
   color: #4592af;
 }
-
 .navbar .navbar-brand:hover {
   color: #226089;
 }
-
 .banner {
   position: relative;
   z-index: -1;
@@ -21,13 +18,18 @@ header {
   background: #dddddd center center
     url("https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/5720/restaurants-list-cover.jpg");
   background-size: cover;
+  background-size: fixed;
+  background-position: 80%;
   filter: blur(3px);
 }
-
+.search__form{
+  display: flex;
+  justify-content:space-between;
+}
 .search-bar .search-bar-outer {
   margin: 0 auto;
-  max-width: 680px;
-  background-color: #fce2cf;
+  max-width: 920px;
+  background-color: #00000063;
   border-radius: 8px;
   padding: 20px 30px;
   border: 0;
@@ -36,14 +38,13 @@ header {
 }
 
 .search-bar .search-bar-inner h4 {
-  color: #9b4b4b;
+  color: #ffffff;
+  font-weight: bold;
 }
-
 .form-control::placeholder {
   color: #aaaaaa;
   font-size: 0.8rem;
 }
-
 .btn-major {
   background-color: #9b4b4b;
   color: white;
