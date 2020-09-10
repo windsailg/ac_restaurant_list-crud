@@ -40,9 +40,14 @@
         <div class="input-group-prepend">
             <span class="input-group-text">餐廳地址</span>
         </div>
-        
+        <select name="area" value="" class="custom-select col-md-2" id="inputGroupSelect01">
+            <option value="北部">選擇地區</option>
+            <option value="北部">北部</option>
+            <option value="中部">中部</option>
+            <option value="南部">南部</option>
+        </select>
         <input type="text" aria-label="First name" class="form-control" placeholder="輸入餐廳地址" spellcheck="false" name="location" >
-        <input type="text" aria-label="Last name" class="form-control" placeholder="輸入Google Map 地圖網址" spellcheck="false" name="map" >
+        <input type="text" aria-label="Last name" class="form-control" placeholder="輸入Google Map 地圖網址" spellcheck="false" name="google_map" >
     </div>
 
     <div class="input-group mb-3">
@@ -78,10 +83,28 @@
     </div>
 
 
-      <button type="submit" class="btn btn-warning btn-lg"><i class="far fa-plus-square"></i> Create</button>
+      <button type="button" class="btn btn-warning btn-lg shadow"  data-toggle="modal" data-target="#ModalNew" ><i class="far fa-plus-square"></i> Create</button>
     </div>
 
-
+    <div class="modal fade" id="ModalNew" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">新增確認</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+            您確定要新增該筆餐廳資訊嗎?
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                <button type="submit" class="btn btn-warning">確認新增</button>
+            </div>
+        </div>
+        </div>
+    </div>
   </form>
 
 </div>

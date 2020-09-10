@@ -3,22 +3,67 @@ const router = express.Router()
 
 const restaurants = require('../../models/restaurant')
 
-// 搜尋路由
+// 搜尋篩選路由
 router.get('/', (req, res) => {
-  const keyword = req.query.keyword.trim().toLowerCase()
-  restaurants.find()// 從資料庫找出資料
-    .lean()// 轉成JS物件
-    .sort({ name: 'asc' })// desc
+  const queryArr = req.query
+  if (!queryArr.sortRule) queryArr.sortRule = 'asc'
+  if (queryArr.clear) queryArr.keyword = ''
+  const word = queryArr.keyword.toLowerCase().trim()
+  restaurants.find()
+    .lean()
+    .sort({ name: queryArr.sortRule })
     .then(restaurant => {
+      const categoryArr = []
+      const areaArr = []
+      restaurant.forEach(item => {
+        categoryArr.push(item.category)
+        areaArr.push(item.area)
+      })
+      const categories = categoryArr.filter((ele, index, thisArr) => {
+        return thisArr.indexOf(ele) === index
+      })
+      const areas = areaArr.filter((ele, index, thisArr) => {
+        return thisArr.indexOf(ele) === index
+      })
+
       const searchedRestaurant = []
       restaurant.forEach(item => {
-        if (item.name.toLowerCase().includes(keyword) || item.category.toLowerCase().includes(keyword)) {
+        if (item.name.toLowerCase().includes(word) || item.category.toLowerCase().includes(word)) {
           searchedRestaurant.push(item)
         }
       })
-      return res.render('index', { restaurant: searchedRestaurant, keywords: keyword })
+
+      const filteredRestaurant = []
+      if (queryArr.filterCategory) {
+        searchedRestaurant.forEach(item => {
+          if (item.category.includes(queryArr.filterCategory)) {
+            filteredRestaurant.push(item)
+          }
+        })
+        searchedRestaurant.length = 0
+        filteredRestaurant.forEach(ele => {
+          searchedRestaurant.push(ele)
+        })
+      } else if (queryArr.filterArea) {
+        searchedRestaurant.forEach(item => {
+          if (item.area.includes(queryArr.filterArea)) {
+            filteredRestaurant.push(item)
+          }
+        })
+        searchedRestaurant.length = 0
+        filteredRestaurant.forEach(ele => {
+          searchedRestaurant.push(ele)
+        })
+      }
+
+      return res.render('index', {
+        restaurant: searchedRestaurant,
+        keywords: word,
+        categories,
+        areas,
+        queryArr
+      })
     })
-    // .then(searchedRestaurant => res.render('index', { restaurant: searchedRestaurant, keywords: keyword }))
     .catch(error => console.error(error))
 })
 
@@ -29,16 +74,19 @@ router.get('/new', (req, res) => {
 
 // 新增頁面送出路由
 router.post('/', (req, res) => {
+
+  const { name, name_en, category, rating, area, location, google_map, phone, description, image } = req.body
   return restaurants.create({
-    name: req.body.name,
-    name_en: req.body.name_en,
-    category: req.body.category,
-    rating: req.body.rating,
-    location: req.body.location,
-    google_map: req.body.map,
-    phone: req.body.phone,
-    description: req.body.description,
-    image: req.body.image
+    name: name,
+    name_en: name_en,
+    category: category,
+    rating: rating,
+    area: area,
+    location: location,
+    google_map: google_map,
+    phone: phone,
+    description: description,
+    image: image
   })
     .then(() => res.redirect('/'))
     .catch(error => console.log(error))
@@ -63,19 +111,22 @@ router.get('/:restaurant_id/edit', (req, res) => {
 })
 
 // 編輯頁面送出路由
-router.post('/:restaurant_id/edit', (req, res) => {
+router.put('/:restaurant_id', (req, res) => {
   const id = req.params.restaurant_id
+  const { name, name_en, category, rating, area, location, google_map, phone, description, image } = req.body
+  console.log(req.body)
   return restaurants.findById(id)
     .then(restaurant => {
-      restaurant.name = req.body.name
-      restaurant.name_en = req.body.name_en
-      restaurant.category = req.body.category
-      restaurant.rating = req.body.rating
-      restaurant.location = req.body.location
-      restaurant.google_map = req.body.map
-      restaurant.phone = req.body.phone
-      restaurant.description = req.body.description
-      restaurant.image = req.body.image
+      restaurant.name = name
+      restaurant.name_en = name_en
+      restaurant.category = category
+      restaurant.rating = rating
+      restaurant.area = area
+      restaurant.location = location
+      restaurant.google_map = google_map
+      restaurant.phone = phone
+      restaurant.description = description
+      restaurant.image = image
       return restaurant.save()
     })
     .then(() => {

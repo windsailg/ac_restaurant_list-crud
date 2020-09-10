@@ -13,7 +13,7 @@
     <div class="col-12 col-md-10 mx-auto">
 
       <p class="mb-1">
-        <span class="text-secondary">
+        <span class="text-secondary font-weight-bold">
           <i class="fas fa-utensils pr-2"></i>
           類別：
         </span>
@@ -21,7 +21,15 @@
       </p>
 
       <p class="mb-1">
-        <span class="text-secondary">
+        <span class="text-secondary font-weight-bold">
+          <i class="fas fa-medal pr-1"></i>
+          評分：
+        </span>{{restaurant.rating}}
+         顆星
+      </p>
+
+      <p class="mb-1">
+        <span class="text-secondary font-weight-bold">
           <i class="fas fa-map-marker-alt pr-2"></i>
           地址：
         </span>
@@ -32,7 +40,7 @@
       </p>
 
       <p class="mb-1">
-        <span class="text-secondary">
+        <span class="text-secondary font-weight-bold">
           <i class="fas fa-mobile-alt pr-2"></i>
           電話：
         </span>
@@ -44,9 +52,9 @@
       </p>
 
       <img class="rounded mx-auto d-block mb-5 w-100 shadow-lg" src="{{restaurant.image}}" alt="{{restaurant.name}}" style="max-width: 600px;">
-      <a href="/restaurant/{{restaurant._id}}/edit" class="btn btn-warning btn-lg"><i class="fas fa-edit"></i>  Edit</a>
+      <a href="/restaurant/{{restaurant._id}}/edit" class="btn btn-warning btn-lg shadow"><i class="fas fa-edit"></i>  Edit</a>
       
-      <button type="button" class="btn btn-outline-secondary btn-lg delete__restaurant__btn" data-toggle="modal" data-target="#Modal" data-id="{{restaurant._id}}">Delete</button>
+      <button type="button" class="btn btn-outline-secondary btn-lg delete__restaurant__btn" data-toggle="modal" data-target="#ModalDelete" data-id="{{restaurant._id}}">Delete</button>
     </div>
   </div>
 

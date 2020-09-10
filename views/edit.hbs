@@ -8,7 +8,7 @@
     </div>
   </div>
 
-  <form action="/restaurant/{{restaurant._id}}/edit" method="POST" class="row mb-5">
+  <form action="/restaurant/{{restaurant._id}}?_method=PUT" method="POST" class="row mb-5">
     <div class="col-12 col-md-10 mx-auto">
 
     <div class="input-group mb-3">
@@ -39,9 +39,14 @@
         <div class="input-group-prepend">
             <span class="input-group-text">餐廳地址</span>
         </div>
-        
+        <select name="area" value="" class="custom-select col-md-2" id="inputGroupSelect01">
+            <option value="{{restaurant.area}}" selected>{{restaurant.area}}</option>
+            <option value="北部">北部</option>
+            <option value="中部">中部</option>
+            <option value="南部">南部</option>
+        </select>
         <input type="text" aria-label="First name" class="form-control" placeholder="輸入餐廳地址" spellcheck="false" name="location" value="{{restaurant.location}}">
-        <input type="text" aria-label="Last name" class="form-control" placeholder="輸入Google Map 地圖網址" spellcheck="false" name="map" value="{{restaurant.google_map}}">
+        <input type="text" aria-label="Last name" class="form-control" placeholder="輸入Google Map 地圖網址" spellcheck="false" name="google_map" value="{{restaurant.google_map}}">
     </div>
 
     <div class="input-group mb-3">
@@ -78,11 +83,30 @@
 
         <img class="rounded mx-auto d-block mb-4 w-60" >
 
-        <button type="submit" class="btn btn-warning btn-lg"><i class="fas fa-save"></i>  Save</button>
-        <button type="button" class="btn btn-outline-secondary btn-lg delete__restaurant__btn" data-toggle="modal" data-target="#Modal" data-id="{{restaurant._id}}">Delete</button>
+        <button type="button" class="btn btn-warning btn-lg shadow" data-toggle="modal" data-target="#ModalSave" ><i class="fas fa-save"></i>  Save</button>
+        <button type="button" class="btn btn-outline-secondary btn-lg delete__restaurant__btn" data-toggle="modal" data-target="#ModalDelete" data-id="{{restaurant._id}}">Delete</button>
     </div>
 
 
+    <div class="modal fade" id="ModalSave" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">儲存確認</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+            您確定要儲存該筆餐廳資訊嗎?
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                <button type="submit" class="btn btn-warning">確認儲存</button>
+            </div>
+        </div>
+        </div>
+    </div>
   </form>
 
 </div>

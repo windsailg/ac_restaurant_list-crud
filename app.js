@@ -3,6 +3,8 @@ const exphbs = require('express-handlebars')
 const app = express()
 const port = 3000
 
+app.use(express.static('public'))
+
 const bodyParser = require('body-parser')
 const methodOverride = require('method-override')
 const routes = require('./routes')
@@ -10,7 +12,6 @@ const routes = require('./routes')
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
 app.use(routes)
-app.use(express.static('public'))
 
 // 建立伺服器連線
 require('./config/mongoose')

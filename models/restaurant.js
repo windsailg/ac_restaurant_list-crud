@@ -17,6 +17,10 @@ const restaurantSchema = new Schema({
     type: String,
     required: false
   },
+  area: {
+    type: String,
+    required: false
+  },
   location: {
     type: String,
     required: false
