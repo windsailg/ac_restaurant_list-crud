@@ -4,9 +4,9 @@ const router = express.Router()
 const restaurants = require('../../models/restaurant')
 
 router.get('/', (req, res) => {
-  restaurants.find()// 從資料庫找出資料
-    .lean()// 轉圜單純JS物件
-    .sort({ name: 'asc' })// desc
+  restaurants.find()
+    .lean()
+    .sort({ name: 'asc' })
     .then(restaurant =>{
       const categoryArr = []
       const areaArr = []

@@ -13,10 +13,8 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
 app.use(routes)
 
-// 建立伺服器連線
 require('./config/mongoose')
 
-// 前端引擎
 app.engine('hbs', exphbs({
   defaultLayout: 'main',
   extname: '.hbs'
