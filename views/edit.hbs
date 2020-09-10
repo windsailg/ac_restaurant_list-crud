@@ -8,8 +8,9 @@
     </div>
   </div>
 
-  <form action="/restaurant/{{restaurant._id}}?_method=PUT" method="POST" class="row mb-5">
-    <div class="col-12 col-md-10 mx-auto">
+  <form action="/restaurant/{{restaurant._id}}?_method=PUT" method="POST" class="row mb-5 ">
+    
+    <div class="col-12 col-md-10 mx-auto p-5 shadow-lg">
 
     <div class="input-group mb-3">
         <div class="input-group-prepend">
@@ -87,7 +88,6 @@
         <button type="button" class="btn btn-outline-secondary btn-lg delete__restaurant__btn" data-toggle="modal" data-target="#ModalDelete" data-id="{{restaurant._id}}">Delete</button>
     </div>
 
-
     <div class="modal fade" id="ModalSave" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog" role="document">
         <div class="modal-content">
@@ -107,6 +107,7 @@
         </div>
         </div>
     </div>
+
   </form>
 
 </div>

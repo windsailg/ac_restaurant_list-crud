@@ -34,7 +34,7 @@ header {
   padding: 20px 30px;
   border: 0;
   margin-top: -60px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.233);
 }
 
 .search-bar .search-bar-inner h4 {
@@ -109,7 +109,7 @@ header {
     background-color:#9b4b4b ;
 }
 .input-group-text{
-  background-color: #ffd7cd;
+  background-color: #fff0eb;
 }
 .rating_number{
   min-width: 50px;
@@ -123,7 +123,7 @@ header {
 .form-control:focus{
   color: #495057;
   background-color: #fff;
-  border-color: #ffd7cd;
+  border-color: #ffebe6;
   outline: 0;
   box-shadow: 0 0 .8rem #ffd7cd;
 }
@@ -133,10 +133,11 @@ header {
   box-shadow: 0 0 .8rem transparent;
 }
 .form-control:disabled{
-  background-color: #fff3f0;
+  background-color: #fff9f8;
 }
 .restaurant-show-title{
   min-height: 58px;
+  text-shadow: 0 0 25px #0000009f;
 }
 .card-title{
   min-height: 20px;

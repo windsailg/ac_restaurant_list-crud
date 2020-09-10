@@ -10,7 +10,7 @@
   </div>
 
   <div class="row mb-5">
-    <div class="col-12 col-md-10 mx-auto">
+    <div class="col-12 col-md-10 mx-auto p-5 shadow-lg">
 
       <p class="mb-1">
         <span class="text-secondary font-weight-bold">
@@ -51,7 +51,7 @@
         {{restaurant.description}}
       </p>
 
-      <img class="rounded mx-auto d-block mb-5 w-100 shadow-lg" src="{{restaurant.image}}" alt="{{restaurant.name}}" style="max-width: 600px;">
+      <img class="rounded mx-auto d-block mb-5 w-100 shadow" src="{{restaurant.image}}" alt="{{restaurant.name}}" style="max-width: 600px;">
       <a href="/restaurant/{{restaurant._id}}/edit" class="btn btn-warning btn-lg shadow"><i class="fas fa-edit"></i>  Edit</a>
       
       <button type="button" class="btn btn-outline-secondary btn-lg delete__restaurant__btn" data-toggle="modal" data-target="#ModalDelete" data-id="{{restaurant._id}}">Delete</button>
